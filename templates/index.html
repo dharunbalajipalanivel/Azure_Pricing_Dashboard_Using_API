@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Pricing Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Azure Pricing Dashboard</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial Number</th>
+                    <th>Product Name</th>
+                    <th>Location</th>
+                    <th>Currency</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for price in prices %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ price['productName'] }}</td>
+                    <td>{{ price['location'] }}</td>
+                    <td>{{ price['currencyCode'] }}</td>
+                    <td>${{ price['unitPrice'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; {{ year }} Azure Pricing Dashboard</p>
+    </footer>
+</body>
+</html>
